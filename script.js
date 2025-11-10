@@ -1,11 +1,11 @@
 const getCurrentPath = (path) => {
-  if (path === "/") return "home";
-  if (path === "/pages/my-work") return "my work";
-  if (path === "/pages/services") return "services";
-  if (path === "/pages/classes") return "classes";
-  if (path === "/pages/beauty-tips") return "beauty tips";
-  if (path === "/pages/about") return "about";
-  if (path === "/pages/contact") return "contact";
+  if (path === "/") return "index.html";
+  if (path === "/my-work") return "my work";
+  if (path === "/services") return "services";
+  if (path === "/classes") return "classes";
+  if (path === "/beauty-tips") return "beauty tips";
+  if (path === "/about") return "about";
+  if (path === "/contact") return "contact";
 };
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
   navLinks.forEach((link) => {
-    if (link.href.split("/")[4] === getCurrentPath(window.location.pathname)) {
+    if (link.href.split("/")[3] === getCurrentPath(window.location.pathname)) {
       link.style.textDecoration = "underline";
       link.style.textDecorationColor = "var(--bold-main-color)";
       link.style.textDecorationThickness = "0.5px";
