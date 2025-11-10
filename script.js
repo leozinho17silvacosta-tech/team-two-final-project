@@ -10,6 +10,27 @@ const getCurrentPath = (path) => {
 
 window.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".footer-nav ul li a");
+  const hamburgerMenu = document.getElementById("hamburguer-menu");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const closeMenu = document.getElementById("close-menu");
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu-nav a");
+
+  hamburgerMenu.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
   navLinks.forEach((link) => {
     if (link.href.split("/")[4] === getCurrentPath(window.location.pathname)) {
       link.style.textDecoration = "underline";
